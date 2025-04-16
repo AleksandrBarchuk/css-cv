@@ -1,60 +1,153 @@
 
-/* Основные стили */
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    max-width: 900px;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Градиентный фон */
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
 }
 
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Заголовки */
 h1, h2, h3 {
-    color: #2c3e50;
+    color: #1a2a44;
+    font-family: 'Roboto', sans-serif;
 }
 
-a {
-    color: #3498db;
-    text-decoration: none;
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-a:hover {
-    text-decoration: underline;
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #74ebd5;
+    padding-bottom: 5px;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
 }
 
 /* Карточки */
 .card {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* О себе */
+.about-list {
+    list-style: none;
+    padding: 0;
+}
+
+.about-list li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.about-list li:hover {
+    background: #f0f4ff;
 }
 
 /* Секция с инструментами */
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
     text-align: center;
 }
 
 .tool-item {
-    padding: 10px;
-    transition: transform 0.3s;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    animation: scaleIn 0.5s ease-out forwards;
 }
 
 .tool-item:hover {
     transform: scale(1.1);
+    background: #e0f7fa;
 }
 
 .tool-item img {
-    width: 40px !important; /* Принудительно ограничиваем размер */
-    height: 40px !important;
-    object-fit: contain; /* Сохраняем пропорции изображения */
-    margin-bottom: 5px;
-    display: block; /* Убираем возможные отступы */
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.tool-item:hover img {
+    transform: rotate(10deg);
+}
+
+.tool-item div {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1a2a44;
 }
 
 /* Проекты */
@@ -65,23 +158,54 @@ a:hover {
 
 .project-list li {
     margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.project-list li:hover {
+    background: #e0f7fa;
+    transform: translateX(10px);
+}
+
+.project-list a {
+    color: #1a73e8;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.project-list a:hover {
+    text-decoration: underline;
 }
 
 /* Контакты */
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
     margin-top: 20px;
 }
 
-.contact-links a {
+.contact-icon {
     display: inline-block;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.contact-links a:hover {
-    transform: translateY(-3px);
+.contact-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: grayscale(50%);
+    transition: filter 0.3s ease;
+}
+
+.contact-icon:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon:hover img {
+    filter: grayscale(0%);
 }
