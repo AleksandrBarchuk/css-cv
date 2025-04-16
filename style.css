@@ -1,153 +1,96 @@
-
-/* Общие стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Основные стили */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Градиентный фон */
-    min-height: 100vh;
-    padding: 40px 20px;
-}
-
-.container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f7fa;
+    background-image: linear-gradient(to bottom right, #f5f7fa 0%, #e4e8ed 100%);
+    min-height: 100vh;
 }
 
-/* Анимации */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 0.6s ease-out forwards;
-}
-
-/* Заголовки */
 h1, h2, h3 {
-    color: #1a2a44;
-    font-family: 'Roboto', sans-serif;
+    color: #2c3e50;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-align: center;
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 2px solid #74ebd5;
-    padding-bottom: 5px;
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
 }
 
-p {
-    font-size: 1.1rem;
-    color: #555;
+/* Контейнер */
+.container {
+    padding: 20px;
 }
 
 /* Карточки */
 .card {
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* О себе */
-.about-list {
-    list-style: none;
-    padding: 0;
+.header-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
 }
 
-.about-list li {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-}
-
-.about-list li:hover {
-    background: #f0f4ff;
+.contact-card {
+    text-align: center;
 }
 
 /* Секция с инструментами */
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 20px;
     text-align: center;
 }
 
 .tool-item {
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 10px;
-    transition: transform 0.3s ease, background 0.3s ease;
-    animation: scaleIn 0.5s ease-out forwards;
+    padding: 15px 10px;
+    transition: all 0.3s;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .tool-item:hover {
-    transform: scale(1.1);
-    background: #e0f7fa;
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
 }
 
 .tool-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    transition: transform 0.3s;
 }
 
 .tool-item:hover img {
-    transform: rotate(10deg);
+    transform: scale(1.1);
 }
 
 .tool-item div {
     font-size: 0.9rem;
-    font-weight: 500;
-    color: #1a2a44;
+    color: #4a5568;
 }
 
 /* Проекты */
@@ -158,27 +101,23 @@ p {
 
 .project-list li {
     margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
 }
 
 .project-list li:hover {
-    background: #e0f7fa;
-    transform: translateX(10px);
+    border-bottom-color: rgba(52, 152, 219, 0.3);
 }
 
 .project-list a {
-    color: #1a73e8;
-    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
-    text-decoration: none;
+    gap: 8px;
 }
 
-.project-list a:hover {
-    text-decoration: underline;
+.project-list i {
+    color: #3498db;
 }
 
 /* Контакты */
@@ -189,23 +128,23 @@ p {
     margin-top: 20px;
 }
 
-.contact-icon {
+.contact-links a {
     display: inline-block;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s;
 }
 
-.contact-icon img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    filter: grayscale(50%);
-    transition: filter 0.3s ease;
+.contact-links a:hover {
+    transform: translateY(-5px) scale(1.1);
 }
 
-.contact-icon:hover {
-    transform: translateY(-5px);
-}
-
-.contact-icon:hover img {
-    filter: grayscale(0%);
+/* Адаптивность */
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 15px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
 }
